@@ -1,0 +1,2 @@
+Syntax highlighting for PureScript language files (`.purs`) based on the [https://github.com/purescript-contrib/atom-language-purescript](Atom grammar)
+(which is also used for GitHub syntax highlighting).
