@@ -4,6 +4,14 @@
   "description": "Syntax Highlighting for the PureScript programming language",
   "version": "0.0.1",
   "publisher": "nwolverson",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nwolverson/vscode-language-purescript"
+  },
+  "bugs": {
+    "url": "https://github.com/nwolverson/vscode-language-purescript/issues"
+  },
+  "icon": "images/ps_avatar.png",
   "engines": {
     "vscode": "^0.10.1"
   },
