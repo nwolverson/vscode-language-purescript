@@ -2,7 +2,7 @@
   "name": "language-purescript",
   "displayName": "PureScript Language Support",
   "description": "Syntax Highlighting for the PureScript programming language",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "publisher": "nwolverson",
   "repository": {
     "type": "git",
