@@ -36,32 +36,8 @@
       }
     },
     {
-      "begin": "(\\[)([\\p{Ll}_][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*)(\\|)",
-      "end": "(\\|)(\\])",
-      "beginCaptures": {
-        "1": {
-          "name": "punctuation.definition.quasiquotes.begin.purescript"
-        },
-        "2": {
-          "name": "entity.name.tag.purescript"
-        },
-        "3": {
-          "name": "string.quoted.quasiquotes.purescript"
-        }
-      },
-      "endCaptures": {
-        "1": {
-          "name": "string.quoted.quasiquotes.purescript"
-        },
-        "2": {
-          "name": "punctuation.definition.quasiquotes.end.purescript"
-        }
-      },
-      "contentName": "string.quoted.quasiquotes.purescript"
-    },
-    {
       "name": "meta.declaration.module.purescript",
-      "begin": "\\b(module)\\b",
+      "begin": "\\b(module)(?!')\\b",
       "end": "(where)",
       "beginCaptures": {
         "1": {
@@ -91,7 +67,7 @@
     },
     {
       "name": "meta.declaration.typeclass.purescript",
-      "begin": "\\b(class)\\b",
+      "begin": "\\b(class)(?!')\\b",
       "end": "\\b(where)\\b|$",
       "beginCaptures": {
         "1": {
@@ -111,7 +87,7 @@
     },
     {
       "name": "meta.declaration.instance.purescript",
-      "begin": "\\b(instance)\\b",
+      "begin": "\\b(instance)(?!')\\b",
       "end": "\\b(where)\\b|$",
       "contentName": "meta.type-signature.purescript",
       "beginCaptures": {
@@ -162,8 +138,8 @@
     },
     {
       "name": "meta.import.purescript",
-      "begin": "\\b(import)\\b",
-      "end": "($|;|(?=--))",
+      "begin": "\\b(import)(?!')\\b",
+      "end": "($|(?=--))",
       "beginCaptures": {
         "1": {
           "name": "keyword.other.purescript"
@@ -177,7 +153,7 @@
           "include": "#module_exports"
         },
         {
-          "match": "\\b(qualified|as|hiding)\\b",
+          "match": "\\b(as|hiding)\\b",
           "captures": {
             "1": {
               "name": "keyword.other.purescript"
@@ -306,19 +282,15 @@
     },
     {
       "name": "keyword.other.purescript",
-      "match": "\\b(derive|where|data|type|newtype)\\b"
+      "match": "\\b(derive|where|data|type|newtype|infix[lr]?|foreign)(?!')\\b"
     },
     {
       "name": "storage.type.purescript",
-      "match": "\\b(data|type|newtype)\\b"
-    },
-    {
-      "name": "keyword.operator.purescript",
-      "match": "\\binfix[lr]?\\b"
+      "match": "\\b(data|type|newtype)(?!')\\b"
     },
     {
       "name": "keyword.control.purescript",
-      "match": "\\b(do|if|then|else|case|of|let|in)\\b"
+      "match": "\\b(do|if|then|else|case|of|let|in)(?!')\\b"
     },
     {
       "name": "constant.numeric.float.purescript",
@@ -496,7 +468,7 @@
         },
         {
           "name": "comment.block.purescript",
-          "begin": "\\{-(?!#)",
+          "begin": "\\{-",
           "end": "-\\}",
           "applyEndPatternLast": 1,
           "beginCaptures": {
@@ -699,7 +671,7 @@
       "patterns": [
         {
           "name": "meta.class-constraints.purescript",
-          "match": "(?:(?:\\()(?:(?<classConstraints>(?:(?:(?:([\\p{Lu}\\p{Lt}][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*(?:\\.[\\p{Lu}\\p{Lt}][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*)*)\\s+)(?:(?<classConstraint>(?:[\\p{Lu}\\p{Lt}][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*(?:\\.[\\p{Lu}\\p{Lt}][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*)*|(?:[\\p{Lu}\\p{Lt}][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*(?:\\.[\\p{Lu}\\p{Lt}][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*)*\\.)?[\\p{Ll}_][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*)(?:\\s*(?:\\s+)\\s*\\g<classConstraint>)?))))(?:\\s*(?:,)\\s*\\g<classConstraints>)?))(?:\\))(?:\\s*(=>|<=|⇒)))",
+          "match": "(?:(?:\\()(?:(?<classConstraints>(?:(?:(?:([\\p{Lu}\\p{Lt}][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*(?:\\.[\\p{Lu}\\p{Lt}][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*)*)\\s+)(?:(?<classConstraint>(?:[\\p{Lu}\\p{Lt}][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*(?:\\.[\\p{Lu}\\p{Lt}][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*)*|(?:[\\p{Lu}\\p{Lt}][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*(?:\\.[\\p{Lu}\\p{Lt}][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*)*\\.)?[\\p{Ll}_][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*)(?:\\s*(?:\\s+)\\s*\\g<classConstraint>)?))))(?:\\s*(?:,)\\s*\\g<classConstraints>)?))(?:\\))(?:\\s*(=>|<=|⇐|⇒)))",
           "captures": {
             "1": {
               "patterns": [
@@ -715,7 +687,7 @@
         },
         {
           "name": "meta.class-constraints.purescript",
-          "match": "((?:(?:([\\p{Lu}\\p{Lt}][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*(?:\\.[\\p{Lu}\\p{Lt}][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*)*)\\s+)(?:(?<classConstraint>(?:[\\p{Lu}\\p{Lt}][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*(?:\\.[\\p{Lu}\\p{Lt}][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*)*|(?:[\\p{Lu}\\p{Lt}][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*(?:\\.[\\p{Lu}\\p{Lt}][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*)*\\.)?[\\p{Ll}_][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*)(?:\\s*(?:\\s+)\\s*\\g<classConstraint>)?))))\\s*(=>|<=|⇒)",
+          "match": "((?:(?:([\\p{Lu}\\p{Lt}][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*(?:\\.[\\p{Lu}\\p{Lt}][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*)*)\\s+)(?:(?<classConstraint>(?:[\\p{Lu}\\p{Lt}][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*(?:\\.[\\p{Lu}\\p{Lt}][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*)*|(?:[\\p{Lu}\\p{Lt}][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*(?:\\.[\\p{Lu}\\p{Lt}][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*)*\\.)?[\\p{Ll}_][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*)(?:\\s*(?:\\s+)\\s*\\g<classConstraint>)?))))\\s*(=>|<=|⇐|⇒)",
           "captures": {
             "1": {
               "patterns": [
@@ -739,11 +711,11 @@
         },
         {
           "name": "keyword.other.big-arrow-left.purescript",
-          "match": "<="
+          "match": "<=|⇐"
         },
         {
           "name": "keyword.other.forall.purescript",
-          "match": "forall"
+          "match": "forall|∀"
         },
         {
           "include": "#generic_type"
@@ -760,7 +732,7 @@
       "patterns": [
         {
           "name": "entity.name.type.purescript",
-          "match": "\\b[\\p{Lu}\\p{Lt}][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*(?:\\.[\\p{Lu}\\p{Lt}][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*)*\\b"
+          "match": "\\b[\\p{Lu}\\p{Lt}][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*(?:\\.[\\p{Lu}\\p{Lt}][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*)*"
         }
       ]
     },
@@ -768,7 +740,7 @@
       "patterns": [
         {
           "name": "entity.name.tag.purescript",
-          "match": "\\b[\\p{Lu}\\p{Lt}][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*(?:\\.[\\p{Lu}\\p{Lt}][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*)*\\b"
+          "match": "\\b[\\p{Lu}\\p{Lt}][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*(?:\\.[\\p{Lu}\\p{Lt}][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*)*"
         }
       ]
     },
@@ -776,7 +748,7 @@
       "patterns": [
         {
           "name": "variable.other.generic-type.purescript",
-          "match": "\\b(?:[\\p{Lu}\\p{Lt}][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*(?:\\.[\\p{Lu}\\p{Lt}][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*)*\\.)?[\\p{Ll}_][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*\\b"
+          "match": "\\b(?:[\\p{Lu}\\p{Lt}][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*(?:\\.[\\p{Lu}\\p{Lt}][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*)*\\.)?[\\p{Ll}_][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*"
         }
       ]
     },
@@ -790,7 +762,7 @@
               "patterns": [
                 {
                   "name": "entity.name.type.purescript",
-                  "match": "\\b[\\p{Lu}\\p{Lt}][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*(?:\\.[\\p{Lu}\\p{Lt}][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*)*\\b"
+                  "match": "\\b[\\p{Lu}\\p{Lt}][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*(?:\\.[\\p{Lu}\\p{Lt}][\\p{Ll}_\\p{Lu}\\p{Lt}\\p{Nd}']*)*"
                 }
               ]
             },
