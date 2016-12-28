@@ -38,13 +38,17 @@
         "scopeName": "source.purescript",
         "path": "./syntaxes/purescript.json"
       }
-    ]
+    ],
+    "snippets": [{
+        "language": "purescript",
+        "path": "./snippets/purescript.json"
+    }]
   },
   "devDependencies": {
     "cson": "^3.0.2",
     "request": "^2.67.0"
   },
   "scripts": {
-    "build": "node scripts/update-grammar.js"
+    "build": "node scripts/update-grammar.js && node scripts/update-snippets.js"
   }
 }
