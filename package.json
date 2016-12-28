@@ -4,6 +4,9 @@
     "description": "Syntax Highlighting for the PureScript programming language",
     "version": "0.1.0",
     "publisher": "nwolverson",
+    "engines": {
+        "vscode": "^1.5.0"
+    },
     "repository": {
         "type": "git",
         "url": "https://github.com/nwolverson/vscode-language-purescript"
@@ -12,11 +15,12 @@
         "url": "https://github.com/nwolverson/vscode-language-purescript/issues"
     },
     "icon": "images/ps_avatar.png",
-    "engines": {
-        "vscode": "^0.10.1"
-    },
     "categories": [
         "Languages"
+    ],
+    "main": "./out/src/extension",
+    "activationEvents": [
+        "*"
     ],
     "contributes": {
         "languages": [
@@ -28,8 +32,7 @@
                 ],
                 "extensions": [
                     ".purs"
-                ],
-                "configuration": "./purescript.configuration.json"
+                ]
             }
         ],
         "grammars": [
@@ -48,9 +51,16 @@
     },
     "devDependencies": {
         "cson": "^3.0.2",
-        "request": "^2.67.0"
+        "request": "^2.67.0",
+        "typescript": "^2.0.3",
+        "vscode": "^1.0.0",
+        "@types/node": "^6.0.40"
     },
     "scripts": {
-        "build": "node scripts/update-grammar.js && node scripts/update-snippets.js"
+        "build": "node scripts/update-grammar.js && node scripts/update-snippets.js",
+        "vscode:prepublish": "tsc -p ./",
+        "compile": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
     }
 }
