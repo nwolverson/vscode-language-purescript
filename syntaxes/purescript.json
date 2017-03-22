@@ -246,7 +246,7 @@
           }
         },
         {
-          "name": "meta.declaratyion.type.data.record.block.purescript",
+          "name": "meta.declaration.type.data.record.block.purescript",
           "begin": "\\{",
           "beginCaptures": {
             "0": {
