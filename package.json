@@ -40,6 +40,16 @@
                 "language": "purescript",
                 "scopeName": "source.purescript",
                 "path": "./syntaxes/purescript.json"
+            },
+            {
+                "scopeName": "markdown.purescript.codeblock",
+                "path": "./syntaxes/codeblock-purescript.json",
+                "injectTo": [
+                    "text.html.markdown"
+                ],
+                "embeddedLanguages": {
+                    "meta.embedded.block.purescript": "purescript"
+                }
             }
         ],
         "snippets": [
