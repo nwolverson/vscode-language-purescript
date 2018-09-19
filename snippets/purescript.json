@@ -19,6 +19,10 @@
     "prefix": "do",
     "body": "do\n  "
   },
+  "ADo": {
+    "prefix": "ado",
+    "body": "ado\n  "
+  },
   "Forall": {
     "prefix": "forall",
     "body": "forall ${1:a}."
