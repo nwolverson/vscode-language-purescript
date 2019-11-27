@@ -16,12 +16,7 @@ const configuration : vscode.LanguageConfiguration = {
 		["(", ")"],
 		["\"", "\""],
 		["`", "`"]
-	],
-	"indentationRules": {
-		// indent if:                   |-where w/o firstline-| |- ends with keyword            -| |- ends with unapplied op                                                 -|    |-unmatched brackets (depth 1)-|
-		"increaseIndentPattern": /^\s*(((?!module).)+(.*)where|(.*)\b(do|let|in|if|then|else|of)\b|((.*)[$\.:\+\-\*\=/%><#:\u2200-\u22FF\u27C0-\u27EF\u2980-\u29FF\u2A00-\u2AFF]+)|(.*(\[[^\]]+|\{[^\}]+|\([^\)]+))|(,.*))\s*$/,
-		"decreaseIndentPattern": /^\s*[\]\,\)\}].*$/,
-	}
+	]
 };
 
 export function activate() {
