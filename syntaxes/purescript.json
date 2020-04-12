@@ -1,7 +1,5 @@
 {
-  "fileTypes": [
-    "purs"
-  ],
+  "fileTypes": ["purs"],
   "name": "PureScript",
   "scopeName": "source.purescript",
   "macros": {
@@ -308,8 +306,43 @@
       "match": "\\b(do|ado|if|then|else|case|of|let|in)(?!')\\b"
     },
     {
-      "name": "constant.numeric.float.purescript",
-      "match": "\\b(([0-9]+_?)*[0-9]+\\.[0-9]+([eE][+-]?[0-9]+)?|[0-9]+[eE][+-]?[0-9]+)\\b"
+      "name": "constant.numeric.hex.purescript",
+      "match": "\\b(?<!\\$)0(x|X)[0-9a-fA-F]+\\b(?!\\$)"
+    },
+    {
+      "name": "constant.numeric.binary.purescript",
+      "match": "\\b(?<!\\$)0(b|B)[01]+\\b(?!\\$)"
+    },
+    {
+      "name": "constant.numeric.octal.purescript",
+      "match": "\\b(?<!\\$)0(o|O)?[0-7]+\\b(?!\\$)"
+    },
+    {
+      "name": "constant.numeric.decimal.purescript",
+      "match": "(?x)\n(?<!\\$)(?:\n  (?:\\b[0-9]+(\\.)[0-9]+[eE][+-]?[0-9]+\\b)| # 1.1E+3\n  (?:\\b[0-9]+(\\.)[eE][+-]?[0-9]+\\b)|       # 1.E+3\n  (?:\\B(\\.)[0-9]+[eE][+-]?[0-9]+\\b)|       # .1E+3\n  (?:\\b[0-9]+[eE][+-]?[0-9]+\\b)|            # 1E+3\n  (?:\\b[0-9]+(\\.)[0-9]+\\b)|                # 1.1\n  (?:\\b[0-9]+(\\.)\\B)|                      # 1.\n  (?:\\B(\\.)[0-9]+\\b)|                      # .1\n  (?:\\b[0-9]+\\b(?!\\.))                     # 1\n)(?!\\$)",
+      "captures": {
+        "0": {
+          "name": "constant.numeric.decimal.purescript"
+        },
+        "1": {
+          "name": "meta.delimiter.decimal.period.purescript"
+        },
+        "2": {
+          "name": "meta.delimiter.decimal.period.purescript"
+        },
+        "3": {
+          "name": "meta.delimiter.decimal.period.purescript"
+        },
+        "4": {
+          "name": "meta.delimiter.decimal.period.purescript"
+        },
+        "5": {
+          "name": "meta.delimiter.decimal.period.purescript"
+        },
+        "6": {
+          "name": "meta.delimiter.decimal.period.purescript"
+        }
+      }
     },
     {
       "name": "constant.language.boolean.purescript",
