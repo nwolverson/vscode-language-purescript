@@ -2,7 +2,7 @@
     "name": "language-purescript",
     "displayName": "PureScript Language Support",
     "description": "Syntax Highlighting for the PureScript programming language",
-    "version": "0.2.2",
+    "version": "0.2.3",
     "publisher": "nwolverson",
     "engines": {
         "vscode": "^1.5.0"
