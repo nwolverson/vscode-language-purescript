@@ -16,11 +16,7 @@
     },
     "icon": "images/ps_avatar.png",
     "categories": [
-        "Languages"
-    ],
-    "main": "./out/src/extension",
-    "activationEvents": [
-        "*"
+        "Programming Languages"
     ],
     "contributes": {
         "languages": [
@@ -32,7 +28,8 @@
                 ],
                 "extensions": [
                     ".purs"
-                ]
+                ],
+                "configuration": "./language-configuration.json"
             }
         ],
         "grammars": [
@@ -61,15 +58,9 @@
     },
     "devDependencies": {
         "cson": "^3.0.2",
-        "request": "^2.67.0",
-        "typescript": "^2.0.3",
-        "vscode": "^1.0.0"
+        "request": "^2.67.0"
     },
     "scripts": {
-        "build": "node scripts/update-grammar.js && node scripts/update-snippets.js",
-        "vscode:prepublish": "tsc -p ./",
-        "compile": "tsc -watch -p ./",
-        "postinstall": "node ./node_modules/vscode/bin/install",
-        "test": "node ./node_modules/vscode/bin/test"
+        "build": "node scripts/update-grammar.js && node scripts/update-snippets.js"
     }
 }
